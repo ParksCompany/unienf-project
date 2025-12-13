@@ -1,24 +1,21 @@
 "use client";
 
-import Link from "next/link";
+import { createClient } from "@/app/_lib/supabase/client";
+import { ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { Button } from "../_components/ui/button";
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { title } from "process";
-import Toast from "../_hooks/use-toast";
-import { createClient } from "@/app/_lib/supabase/client";
-import { toast } from "sonner";
-import { ArrowRight } from "lucide-react";
+import { Button } from "../_components/ui/button";
 import { Input } from "../_components/ui/input";
 import { Label } from "../_components/ui/label";
+import Toast from "../_hooks/use-toast";
 
 export default function Login() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -59,7 +56,7 @@ export default function Login() {
         router.push("/");
         router.refresh();
       }
-    } catch (error) {
+    } catch {
       Toast({
         title: "Erro inesperado",
         description: "Ocorreu um erro ao fazer login, tente novamente",
@@ -145,7 +142,7 @@ export default function Login() {
               Digite suas credenciais para acessar o sistema
             </p>
           </div>
-          <form className="space-y-5">
+          <form className="space-y-5" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-2">
               <Label htmlFor="email">E-mail</Label>
               <Input
