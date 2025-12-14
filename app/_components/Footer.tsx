@@ -10,10 +10,10 @@ export default function Footer() {
           <div>
             <Link className="mb-4 flex items-center gap-2" href="/">
               <Image
-                src="/logo.jpg"
+                src="/logo-unienf-vf.png"
                 alt="Logo da UNIENF"
-                width={90}
-                height={90}
+                width={120}
+                height={120}
               />
             </Link>
             <p className="text-card/70 mb-4 text-sm leading-relaxed">
