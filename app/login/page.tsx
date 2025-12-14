@@ -4,8 +4,8 @@ import { createClient } from "@/app/_lib/supabase/client";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { Button } from "../_components/ui/button";
 import { Input } from "../_components/ui/input";
 import { Label } from "../_components/ui/label";
@@ -13,19 +13,9 @@ import Toast from "../_hooks/use-toast";
 
 export default function Login() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    if (searchParams.get("emailsent") === "true") {
-      Toast({
-        title: "E-mail enviado com sucesso",
-        description: "Verifique sua caixa de entrada",
-      });
-    }
-  }, [searchParams]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
