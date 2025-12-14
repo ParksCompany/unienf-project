@@ -1,9 +1,7 @@
-import SideBar from "../SideBar";
-
 export default function Financeiro() {
   return (
-    <div>
-      <SideBar />
-    </div>
+    <main>
+      <h1 className="text-2xl font-bold">Financeiro</h1>
+    </main>
   );
 }

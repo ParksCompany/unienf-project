@@ -1,9 +1,7 @@
-import SideBar from "../SideBar";
-
 export default function Turmas() {
   return (
-    <div>
-      <SideBar />
-    </div>
+    <main>
+      <h1 className="text-2xl font-bold">Turmas</h1>
+    </main>
   );
 }

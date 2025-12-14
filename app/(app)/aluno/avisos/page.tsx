@@ -1,9 +1,8 @@
-import SideBar from "../Sidebar";
-
 export default function Avisos() {
   return (
-    <div>
-      <SideBar />
+    <div className="flex-1 p-6">
+      <h1 className="mb-4 text-2xl font-bold">Avisos</h1>
+      <p className="text-muted-foreground">Nenhum aviso no momento.</p>
     </div>
   );
 }

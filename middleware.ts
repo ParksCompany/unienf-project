@@ -33,15 +33,24 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  const publicRoutes = ["/login", "/signup", "/auth", "/verify-email", "/"];
+  const pathname = request.nextUrl.pathname;
+
+  // Rotas públicas que não requerem autenticação
+  const publicRoutes = ["/login", "/signup", "/auth", "/verify-email"];
   const isPublicRoute = publicRoutes.some((route) =>
-    request.nextUrl.pathname.startsWith(route),
+    pathname.startsWith(route),
   );
 
-  if (!user && !isPublicRoute) {
+  // Permitir acesso à página inicial sem autenticação
+  const isHomePage = pathname === "/";
+
+  // Permitir rotas de API (caso sejam adicionadas no futuro)
+  const isApiRoute = pathname.startsWith("/api/");
+
+  if (!user && !isPublicRoute && !isHomePage && !isApiRoute) {
     const url = request.nextUrl.clone();
     url.pathname = "/login";
-    url.searchParams.set("redirectedFrom", request.nextUrl.pathname);
+    url.searchParams.set("redirectedFrom", pathname);
     return NextResponse.redirect(url);
   }
 
@@ -50,8 +59,29 @@ export async function middleware(request: NextRequest) {
     (request.nextUrl.pathname === "/login" ||
       request.nextUrl.pathname === "/signup")
   ) {
+    // Buscar o perfil do usuário para determinar a role
+    const { data: profileData } = await supabase
+      .from("profiles")
+      .select("role")
+      .eq("user_id", user.id)
+      .single();
+
+    const role = profileData?.role;
+
+    let redirectPath = "/";
+
+    if (role === "aluno") {
+      redirectPath = "/aluno";
+    } else if (role === "professor") {
+      redirectPath = "/professores";
+    } else if (role === "recepção") {
+      redirectPath = "/recepcao";
+    } else if (role === "administrativo" || role === "coordenação") {
+      redirectPath = "/admin";
+    }
+
     const url = request.nextUrl.clone();
-    url.pathname = "/dashboard";
+    url.pathname = redirectPath;
     return NextResponse.redirect(url);
   }
 

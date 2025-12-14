@@ -11,13 +11,13 @@ export default function SignupPage() {
           <a href="#" className="flex items-center gap-2 font-medium">
             <div className="text-primary-foreground flex size-6 items-center justify-center rounded-md">
               <Image
-                src="/logo-eco-finance-1.png"
+                src="/logo-unienf-vf.png"
                 alt="Logo"
-                width={100}
-                height={100}
+                width={120}
+                height={120}
               />
             </div>
-            Eco Finance
+            UNIENF
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">
@@ -28,10 +28,10 @@ export default function SignupPage() {
       </div>
       <div className="bg-muted hidden h-full w-full items-center justify-center lg:flex">
         <Image
-          src="/logo-eco-finance-1.png"
+          src="/logo-unienf-vf.png"
           alt="Logo"
-          width={300}
-          height={300}
+          width={120}
+          height={120}
           className="max-h-[40vh] max-w-[40vw] object-contain"
           priority
         />
