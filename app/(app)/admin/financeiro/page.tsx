@@ -1,7 +1,4 @@
 import { createServerSupabaseClient } from "@/app/_lib/supabase/server";
-
-import FinanceiroAlunoView from "@/app/_components/finance/FinanceiroAlunoview";
-import FinanceiroRecepcaoView from "@/app/_components/finance/FinanceiroRecepcaoView";
 import FinanceiroAdminView from "@/app/_components/finance/FinanceiroAdminView";
 
 export default async function FinanceiroPage() {
@@ -23,37 +20,13 @@ export default async function FinanceiroPage() {
     .eq("user_id", user.id)
     .single();
 
-  if (!profile) {
+  if (!profile || profile.role !== "administrativo") {
     return <div className="flex-1 p-6">Perfil não encontrado.</div>;
   }
 
-  if (profile.role === "aluno") {
-    return (
-      <div className="flex-1 p-6">
-        <FinanceiroAlunoView
-          studentId={user.id}
-          studentName={profile.name ?? user.email ?? "Aluno"}
-        />
-      </div>
-    );
-  }
-
-  if (profile.role === "recepção") {
-    return (
-      <div className="flex-1 p-6">
-        <FinanceiroRecepcaoView />
-      </div>
-    );
-  }
-
-  if (profile.role === "administrativo") {
-    return (
-      <div className="flex-1 p-6">
-        <FinanceiroAdminView />
-      </div>
-    );
-  }
-
-  // professor e coordenação não acessam o financeiro (conforme seu escopo atual)
-  return <div className="flex-1 p-6">Sem acesso ao Financeiro.</div>;
+  return (
+    <div className="flex-1 p-6">
+      <FinanceiroAdminView />
+    </div>
+  );
 }

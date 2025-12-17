@@ -3,6 +3,7 @@
 import { createServerSupabaseClient } from "../supabase/server";
 
 export type Profile = {
+  user_id: string;
   name: string | null;
   email: string | null;
   avatar_url: string | null;
