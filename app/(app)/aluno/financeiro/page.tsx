@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import FinanceiroAlunoView from "@/app/_components/finance/FinanceiroAlunoview";
 import { getUserProfile } from "@/app/_lib/actions/profile";
 
@@ -23,3 +24,5 @@ export default async function Financeiro() {
     </div>
   );
 }
+=======
+>>>>>>> origin
