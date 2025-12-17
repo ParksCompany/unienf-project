@@ -1,35 +1,37 @@
-import { getCurrentSession } from "@/app/_lib/mockdata/session.mock";
-import {
-  canAccessDocuments,
-  canEditDocuments,
-} from "@/app/_lib/actions/profile";
-import { getStudentDocuments } from "@/app/_lib/mockdata/docs.mock";
 import DocumentsView from "@/app/_components/documents/DocumentsView";
+import { canAccessDocuments, getUserProfile } from "@/app/_lib/actions/profile";
+import { getStudentDocuments } from "@/app/_lib/mockdata/docs.mock";
 
 export default async function DocumentosPage() {
-  const session = await getCurrentSession();
+  const profile = await getUserProfile();
 
-  if (!canAccessDocuments(session.role)) {
+  if (!profile) {
+    return <div className="p-6">Sessão inválida. Faça login novamente.</div>;
+  }
+
+  const hasAccess = await canAccessDocuments(profile.role ?? "");
+
+  if (!hasAccess) {
     return <div className="p-6">Sem acesso a Documentos.</div>;
   }
 
-  if (session.role !== "aluno") {
+  if (profile.role !== "aluno") {
     return (
       <div className="p-6">
         Esta rota é destinada ao aluno. Para staff, acesse o perfil do aluno em
-        /dashboard/alunos/[id]/documentos.
+        {" /dashboard/alunos/[id]/documentos."}
       </div>
     );
   }
 
-  const docs = await getStudentDocuments(session.userId);
+  const docs = await getStudentDocuments(profile.user_id);
 
   return (
     <DocumentsView
       title="Meus Documentos"
       subtitle="Acompanhe documentos pendentes, entregues e as observações da UNIENF."
       canEdit={false}
-      studentId={session.userId}
+      studentId={profile.user_id}
       docs={docs}
     />
   );

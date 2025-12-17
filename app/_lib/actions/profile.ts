@@ -3,6 +3,7 @@
 import { createServerSupabaseClient } from "../supabase/server";
 
 export type Profile = {
+  user_id: string;
   name: string | null;
   email: string | null;
   avatar_url: string | null;
@@ -65,7 +66,10 @@ export async function getUserProfile(): Promise<Profile | null> {
     }
 
     if (profileData) {
-      return profileData as Profile;
+      return {
+        ...profileData,
+        user_id: user.id,
+      } as Profile;
     }
 
     console.warn("Profile data é null ou undefined");
