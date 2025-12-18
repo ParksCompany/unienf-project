@@ -28,6 +28,7 @@ export function SignupForm({ className, ...props }: ComponentProps<"form">) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    etiqueta: "",
     password: "",
     confirmPassword: "",
     acceptTerms: false, // Adicionado o campo acceptTerms
@@ -131,8 +132,7 @@ export function SignupForm({ className, ...props }: ComponentProps<"form">) {
             type="etiqueta"
             placeholder="Etiqueta Turma"
             className="focus-neon shadow-accent/15 rounded-lg pr-10 shadow-lg"
-            required
-            value={formData.email}
+            value={formData.etiqueta}
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
             }
