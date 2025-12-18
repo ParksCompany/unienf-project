@@ -3,11 +3,39 @@
 import { createServerSupabaseClient } from "../supabase/server";
 
 export type Profile = {
+  user_id: string;
   name: string | null;
   email: string | null;
   avatar_url: string | null;
   role: string | null;
 };
+
+export async function canAccessDocuments(role: string) {
+  return (
+    role === "aluno" ||
+    role === "recepcao" ||
+    role === "coordenacao" ||
+    role === "administrativo"
+  );
+}
+
+export async function canEditDocuments(role: string) {
+  return (
+    role === "recepcao" || role === "coordenacao" || role === "administrativo"
+  );
+}
+
+export async function canAccessFinance(role: string) {
+  return role === "aluno" || role === "recepcao" || role === "administrativo";
+}
+
+export async function canEditFinance(role: string) {
+  return role === "recepcao" || role === "administrativo";
+}
+
+export async function isAdmin(role: string) {
+  return role === "administrativo";
+}
 
 export async function getUserProfile(): Promise<Profile | null> {
   try {
@@ -38,7 +66,10 @@ export async function getUserProfile(): Promise<Profile | null> {
     }
 
     if (profileData) {
-      return profileData as Profile;
+      return {
+        ...profileData,
+        user_id: user.id,
+      } as Profile;
     }
 
     console.warn("Profile data é null ou undefined");
