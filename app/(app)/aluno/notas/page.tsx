@@ -77,11 +77,19 @@ export default function Notas() {
                       Disciplina
                     </TableHead>
                     <TableHead className="text-muted-foreground px-6 py-4 text-center text-sm font-medium">
-                      Nota 1
+                      Avaliação 1
                     </TableHead>
                     <TableHead className="text-muted-foreground px-6 py-4 text-center text-sm font-medium">
-                      Nota 2
+                      Avaliação 2
                     </TableHead>
+                    <TableHead className="text-muted-foreground px-6 py-4 text-center text-sm font-medium">
+                      Avaliação 3
+                    </TableHead>
+                    <TableHead className="text-muted-foreground px-6 py-4 text-center text-sm font-medium">
+                      Recuperação
+                    </TableHead>
+                    {/*/A nota da Recuperação vai substituir a nota da média das 3 avaliações se for maior que a media.
+                      //Então (IF "RECUPERAÇÃO" > "AVA1+AVA2+AVA3/3" = "RECUPERAÇÃO" ELSE = AVA1+AVA2+AVA3/3)*/}
                     <TableHead className="text-muted-foreground px-6 py-4 text-center text-sm font-medium">
                       Média
                     </TableHead>
@@ -113,8 +121,18 @@ export default function Notas() {
                       </span>
                     </TableCell>
                     <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        9.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        0.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
                       <span className="text-success text-lg font-bold">
-                        8.75
+                        8.8
                       </span>
                     </TableCell>
                     <TableCell className="px-6 py-4 text-right">
@@ -145,8 +163,18 @@ export default function Notas() {
                       </span>
                     </TableCell>
                     <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        9.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        0.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
                       <span className="text-success text-lg font-bold">
-                        7.50
+                        8.0
                       </span>
                     </TableCell>
                     <TableCell className="px-6 py-4 text-right">
@@ -174,6 +202,16 @@ export default function Notas() {
                     <TableCell className="px-6 py-4 text-center">
                       <span className="text-success text-sm font-medium">
                         9.5
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        9.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        0.0
                       </span>
                     </TableCell>
                     <TableCell className="px-6 py-4 text-center">
@@ -209,6 +247,16 @@ export default function Notas() {
                       </span>
                     </TableCell>
                     <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        -
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        -
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
                       <span className="text-muted-foreground text-lg font-bold">
                         -
                       </span>
@@ -237,6 +285,16 @@ export default function Notas() {
                     </TableCell>
                     <TableCell className="px-6 py-4 text-center">
                       <span className="text-muted-foreground text-sm font-medium">
+                        -
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        -
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
                         -
                       </span>
                     </TableCell>
@@ -281,10 +339,16 @@ export default function Notas() {
                       Disciplina
                     </TableHead>
                     <TableHead className="text-muted-foreground px-6 py-4 text-center text-sm font-medium">
-                      Nota 1
+                      Avaliação 1
                     </TableHead>
                     <TableHead className="text-muted-foreground px-6 py-4 text-center text-sm font-medium">
-                      Nota 2
+                      Avaliação 2
+                    </TableHead>
+                    <TableHead className="text-muted-foreground px-6 py-4 text-center text-sm font-medium">
+                      Avaliação 3
+                    </TableHead>
+                    <TableHead className="text-muted-foreground px-6 py-4 text-center text-sm font-medium">
+                      Recuperação
                     </TableHead>
                     <TableHead className="text-muted-foreground px-6 py-4 text-center text-sm font-medium">
                       Média
@@ -313,7 +377,17 @@ export default function Notas() {
                     </TableCell>
                     <TableCell className="px-6 py-4 text-center">
                       <span className="text-success text-sm font-medium">
-                        8.5
+                        8.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        8.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        0.0
                       </span>
                     </TableCell>
                     <TableCell className="px-6 py-4 text-center">
@@ -345,7 +419,17 @@ export default function Notas() {
                     </TableCell>
                     <TableCell className="px-6 py-4 text-center">
                       <span className="text-success text-sm font-medium">
-                        9.0
+                        8.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        8.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        0.0
                       </span>
                     </TableCell>
                     <TableCell className="px-6 py-4 text-center">
@@ -381,6 +465,16 @@ export default function Notas() {
                       </span>
                     </TableCell>
                     <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        8.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        0.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
                       <span className="text-success text-lg font-bold">
                         7.75
                       </span>
@@ -410,6 +504,16 @@ export default function Notas() {
                     <TableCell className="px-6 py-4 text-center">
                       <span className="text-success text-sm font-medium">
                         9.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        8.0
+                      </span>
+                    </TableCell>
+                    <TableCell className="px-6 py-4 text-center">
+                      <span className="text-success text-sm font-medium">
+                        0.0
                       </span>
                     </TableCell>
                     <TableCell className="px-6 py-4 text-center">
