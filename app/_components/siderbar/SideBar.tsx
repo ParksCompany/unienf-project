@@ -142,7 +142,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
 
       <SidebarContent className="bg-primary">{renderMenu()}</SidebarContent>
 
-      <SidebarFooter className="bg-primary mb-3">
+      <SidebarFooter className="bg-primary">
         {profile && (
           <NavUser
             user={{
