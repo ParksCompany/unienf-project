@@ -236,19 +236,19 @@ function computeCostInsights(costs: Cost[]) {
 }
 
 function computeMensalidadeInsights(rows: MensalidadeRow[]) {
-  const totalAlunos = new Set(rows.map((r) => r.student_id)).size;
+  const totalAlunos = new Set(rows.map((r) => r.studentId)).size;
 
   const pagos = rows.filter((r) => r.status === "pago");
   const pendentes = rows.filter((r) => r.status === "pendente");
 
-  const alunosPagos = new Set(pagos.map((r) => r.student_id)).size;
-  const alunosPendentes = new Set(pendentes.map((r) => r.student_id)).size;
+  const alunosPagos = new Set(pagos.map((r) => r.studentId)).size;
+  const alunosPendentes = new Set(pendentes.map((r) => r.studentId)).size;
 
   const totalPrevisto = rows.reduce(
     (acc, r) => acc + (r.valor_mensalidade ?? 0),
     0,
   );
-  const totalRecebido = rows.reduce((acc, r) => acc + (r.valor_pago ?? 0), 0);
+  const totalRecebido = rows.reduce((acc, r) => acc + (r.valorPago ?? 0), 0);
 
   const totalPendente = Math.max(0, totalPrevisto - totalRecebido);
   const adimplenciaPct =
@@ -256,7 +256,7 @@ function computeMensalidadeInsights(rows: MensalidadeRow[]) {
 
   const ticketMedio =
     pagos.length > 0
-      ? pagos.reduce((acc, r) => acc + (r.valor_pago ?? 0), 0) / pagos.length
+      ? pagos.reduce((acc, r) => acc + (r.valorPago ?? 0), 0) / pagos.length
       : 0;
 
   return {
@@ -317,8 +317,7 @@ export default async function FinanceiroAdminView({
         </div>
         <div className="flex items-center gap-4">
           <Button className="ring-offset-background focus-visible:ring-ring [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground relative inline-flex h-10 w-10 items-center justify-center gap-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all duration-200 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50">
-            <Bell className="text-muted-foreground h-5 w-5" />
-            <span className="bg-destructive absolute top-1 right-1 h-2 w-2 rounded-full"></span>
+            <Bell className="h-5 w-5 text-white" />
           </Button>
           <div className="border-border flex items-center gap-3 border-l pl-4">
             <div className="bg-primary flex h-9 w-9 items-center justify-center rounded-full">
