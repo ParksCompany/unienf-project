@@ -54,7 +54,7 @@ export default async function RecepcaoDocumentosPage() {
         </p>
       </div>
 
-      <section className="m-6 rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <section className="gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <div className="border-b p-4">
           <h2 className="font-semibold text-slate-900">Escolha um aluno</h2>
           <p className="text-sm text-slate-600">

@@ -73,7 +73,7 @@ export default async function FinanceiroAlunoView({
         </p>
       </div>
 
-      <div className="m-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <div className="gap-6 overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <div className="border-b p-4">
           <h2 className="font-semibold text-slate-900">Mensalidades {year}</h2>
           <p className="text-sm text-slate-600">

@@ -63,7 +63,7 @@ export default function DocumentsView({
         <p className="text-slate-600">{subtitle}</p>
       </div>
 
-      <div className="m-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+      <div className="gap-6 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <div className="flex items-center justify-between gap-3">
           <div>
             <h3 className="text-lg font-semibold text-slate-900">

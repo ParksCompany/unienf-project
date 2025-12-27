@@ -95,7 +95,7 @@ export default async function RecepcaoHomePage() {
         <KpiCard title="Mensalidades pagas" value={String(pagas)} />
       </div>
 
-      <section className="m-4 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <section className="gap-6 overflow-hidden rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
         <div className="border-b p-4">
           <h2 className="font-semibold text-slate-900">Avisos Recentes</h2>
           <p className="text-sm text-slate-600">Últimos Avisos</p>
